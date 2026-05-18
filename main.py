@@ -19,11 +19,14 @@ text = "\n".join(lines)
 
 
 def clean_text(raw_text):
+    
     raw_text = raw_text.lower()
-    # Удаляю всё, кроме букв, цифр, пробелов и апострофа
+    
     punctuation_without_apostrophe = string.punctuation.replace("'", "")
     translator = str.maketrans(punctuation_without_apostrophe, ' ' * len(punctuation_without_apostrophe))
+    
     cleaned = raw_text.translate(translator)
+    
     words = cleaned.split()
     return words
 
