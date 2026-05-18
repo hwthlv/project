@@ -45,3 +45,5 @@ else:
     print("-" * 25)
     for word, count in counter.most_common(10):
         print(f"{word.ljust(15)} {count}")
+if __name__ == "__main__":
+    main()
