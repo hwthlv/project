@@ -1,7 +1,6 @@
 import string
 from collections import Counter
 
-# ---------- Шаг 1: загрузка текста ----------
 print("=== Инструмент анализа стиля текста ===\n")
 print("Введите ваш текст (для завершения ввода оставьте пустую строку и нажмите Enter):")
 
@@ -18,10 +17,10 @@ while True:
 
 text = "\n".join(lines)
 
-# ---------- Шаг 2: очистка ----------
+
 def clean_text(raw_text):
     raw_text = raw_text.lower()
-    # Удаляем всё, кроме букв, цифр, пробелов и апострофа
+    # Удаляю всё, кроме букв, цифр, пробелов и апострофа
     punctuation_without_apostrophe = string.punctuation.replace("'", "")
     translator = str.maketrans(punctuation_without_apostrophe, ' ' * len(punctuation_without_apostrophe))
     cleaned = raw_text.translate(translator)
@@ -30,10 +29,8 @@ def clean_text(raw_text):
 
 words = clean_text(text)
 
-# ---------- Шаг 3: подсчёт частот ----------
 counter = Counter(words)
 
-# ---------- Вывод топ-10 ----------
 print("\n--- Результаты анализа ---")
 if not words:
     print("Текст не содержит слов.")
